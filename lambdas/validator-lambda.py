@@ -6,7 +6,7 @@ import traceback
 lambda_client = boto3.client('lambda')
 
 def lambda_handler(event, context):
-    print("🔥 Lambda STARTED")
+    print("Lambda STARTED")
     print("Raw event dump (first 500 chars):", str(event)[:500])
     try:
         records = event.get('Records', [])
@@ -22,9 +22,9 @@ def lambda_handler(event, context):
             if all(field in data_json for field in required_fields):
                 valid_records.append(data_json)
             else:
-                print("❌ Missing required fields:", data_json)
+                print("Missing required fields:", data_json)
 
-        print(f"✅ Validated {len(valid_records)} valid records")
+        print(f"Validated {len(valid_records)} valid records")
 
         if valid_records:
             response = lambda_client.invoke(
@@ -32,13 +32,13 @@ def lambda_handler(event, context):
                 InvocationType='Event',
                 Payload=json.dumps({'valid_records': valid_records})
             )
-            print("🚀 Invoked rules-engine-lambda:", response['StatusCode'])
+            print("Invoked rules-engine-lambda:", response['StatusCode'])
         else:
-            print("⚠️ No valid records to process")
+            print("No valid records to process")
 
     except Exception as e:
-        print("❌ Exception occurred:")
+        print("Exception occurred:")
         traceback.print_exc()
 
-    print("🏁 Lambda END")
+    print("Lambda END")
     return {"status": "done"}

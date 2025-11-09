@@ -33,7 +33,7 @@ def lambda_handler(event, context):
             'timestamp': ts
         }
         table.put_item(Item=item)
-        print(f"✅ Wrote record {txn_id} (eligible={eligible}) to DynamoDB")
+        print(f"Wrote record {txn_id} (eligible={eligible}) to DynamoDB")
 
         # --- Publish SNS if eligible ---
         if eligible:
@@ -46,10 +46,10 @@ def lambda_handler(event, context):
             }
             sns.publish(
                 TopicArn=SNS_TOPIC_ARN,
-                Subject='🎉 New Eligible Transaction',
+                Subject='New Eligible Transaction',
                 Message=json.dumps(message, indent=2)
             )
-            print(f"📨 SNS sent for {txn_id}")
+            print(f"SNS sent for {txn_id}")
 
-    print("🏁 Lambda completed")
+    print("Lambda completed")
     return {"status": "processed", "count": len(records)}
