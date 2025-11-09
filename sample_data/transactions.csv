@@ -1,0 +1,7 @@
+transaction_id,customer_id,transaction_ts,amount,currency,merchant,category
+tx-0001,cust-001,2025-10-01T09:12:00+07:00,1200000,VND,ShopA,groceries
+tx-0002,cust-002,2025-10-02T11:05:00+07:00,2500000,VND,ShopB,electronics
+tx-0003,cust-001,2025-10-15T18:30:00+07:00,800000,VND,ShopC,food
+tx-0004,cust-003,2025-10-20T10:00:00+07:00,50000000,VND,TravelCo,travel
+tx-0005,cust-004,2025-10-28T16:45:00+07:00,300000,VND,CafeX,food
+tx-0006,cust-002,2025-11-01T08:10:00+07:00,6000000,VND,ShopD,appliances

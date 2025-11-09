@@ -1,0 +1,5 @@
+# Minimal dependencies to bundle with the Lambda package if needed.
+# Note: AWS Lambda runtime already includes `boto3` and `botocore` in many runtimes,
+# but pinning here helps local testing and consistent packaging.
+boto3>=1.26.0
+requests>=2.28.0

@@ -1,0 +1,13 @@
+{
+  "description": "Schema for transaction CSV used by Glue ETL",
+  "fields": [
+    {"name": "transaction_id", "type": "string", "nullable": false},
+    {"name": "customer_id", "type": "string", "nullable": false},
+    {"name": "transaction_ts", "type": "timestamp", "nullable": false},
+    {"name": "amount", "type": "long", "nullable": false},
+    {"name": "currency", "type": "string", "nullable": false},
+    {"name": "merchant", "type": "string", "nullable": true},
+    {"name": "category", "type": "string", "nullable": true}
+  ],
+  "note": "amount is in smallest currency unit (VND) as integer to avoid float issues"
+}
